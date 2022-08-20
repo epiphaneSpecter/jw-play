@@ -14,6 +14,10 @@ class ControlWindow extends Window {
     ipcMain.on("video:time-updated", (_event, payload) => {
       this.webContents.send("video:time-updated", payload);
     });
+
+    ipcMain.on("file:added", (_event, file) => {
+      this.addFile(file);
+    });
   }
 
   clearFiles() {

@@ -1,5 +1,6 @@
 body {
   background: black;
+  height: 100vh;
 }
 
 a {
@@ -7,6 +8,7 @@ a {
 }
 ul {
   list-style-type: none;
+  height: 100%;
 }
 
 li {
@@ -31,7 +33,7 @@ img {
 #files {
   margin-bottom: 100px;
   display: block;
-  float: left;
+  /* float: left; */
 }
 
 #video-controls {

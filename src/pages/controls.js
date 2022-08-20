@@ -1,6 +1,16 @@
 const { on } = require("delegated-events");
 const { ipcRenderer } = require("electron");
+const { Dropzone } = require("dropzone");
 const { isImage, isVideo, mediaProgress } = require("../utils");
+
+const dropzone = new Dropzone("ul#files", {
+  url: "/file/post",
+  addedfile: (file) => file,
+});
+
+dropzone.on("addedfile", (file) => {
+  ipcRenderer.send("file:added", file.path);
+});
 
 function select(selector, base = document) {
   return base.querySelector(selector);
